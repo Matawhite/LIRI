@@ -1,0 +1,32 @@
+{
+  "name": "liri",
+  "version": "1.0.0",
+  "description": "an assistant program that runs in your terminal",
+  "main": "liri.js",
+  "dependencies": {
+    "inquirer": "^1.1.0",
+    "request": "^2.72.0",
+    "spotify": "^0.3.0",
+    "twitter": "^1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matawhite/LIRI.git"
+  },
+  "keywords": [
+    "twitter",
+    "liri",
+    "spotify",
+    "terminal"
+  ],
+  "author": "Matt White",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Matawhite/LIRI/issues"
+  },
+  "homepage": "https://github.com/Matawhite/LIRI#readme"
+}
