@@ -117,5 +117,6 @@ function help(){
   console.log('L.I.R.I has three core functions: \nMovie Look up, \nSong Look up, \nand see the last 20 tweets of my maker.')
   console.log('To use the movie look up, type this: "node liri.js movie-this movie title"');
   console.log('To use the song look up, type this: "node liri.js spotify-this song title"');
-  console.log('Lastly, to see the last 20 tweets of my maker, simply type: "node liri.js tweet-this"');
+  console.log('To see the last 20 tweets of my maker, simply type: "node liri.js tweet-this"');
+  console.log('Lastly, and because the homework instructions got a little confusing, type: "node liri.js do-what-it-says" to something interesting')
 }
