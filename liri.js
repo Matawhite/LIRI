@@ -1,11 +1,11 @@
 //packages
+var fs = require('fs');
 var request = require('request');
 var keys = require('./keys.js');
 var Twitter = require('twitter');
 var spotify = require('spotify');
 
-
-
+//parse user input
 var verb = process.argv[2];
 var userInput = [];
 
@@ -15,6 +15,7 @@ for(var i = 3; i < process.argv.length; i++){
 
 var subject = userInput.join(" ");
 
+//read user input
 switch(verb) {
     case 'movie-this':
         lookUpMovieData(subject);
@@ -25,6 +26,9 @@ switch(verb) {
     case 'spotify-this':
         searchSpotify(subject);
         break;
+    case 'do-what-it-says':
+        readFromFile()
+          break;
     default:
         help();
 }
@@ -67,34 +71,46 @@ function getTweets(){
       console.log(count + ': ' + eached.text);
     })
   }else{
-    console.log('error');
+    console.log(error);
     }
   });
 }
 
 function searchSpotify(subject){
-  var trackQuery = '';
+
   spotify.search({ type: 'track', query: subject}, function(error,data){
+    console.log(subject)
     if(error){
       console.log(error);
     }else{
-      var baseNode = data.tracks.items;
       var artistsName = data.tracks.items[0].artists[0].name;
       var songName = data.tracks.items[0].name;
       var albumName = data.tracks.items[0].album.name;
       var songURL = data.tracks.items[0].album.external_urls;
       var printURL = function(){
         for(url in songURL){
-          console.log('Album URL: ' + songURL[url]);
+          return songURL[url];
         }
       }
-      console.log('Artist Name: ' + artistsName);
+      console.log('Artists Name: ' + artistsName);
       console.log('Song Name: ' + songName);
       console.log('Album Name: ' + albumName);
-      printURL();
+      console.log('songURL: ' + printURL());
     }//END OF ELSE STATEMENT
   })
 }//end of function
+
+function readFromFile(){
+  fs.readFile('./random.txt', function read(err, data) {
+      if (err) {
+          throw err;
+      }
+      var output = data.toString();
+      output = output.replace(/\n$/, '');
+      var songName = output.split(',');
+      searchSpotify(songName[1]);
+  });
+}
 
 function help(){
   console.log('Welcome to L.I.R.I, SIRI\'s twice removed cousin.');
