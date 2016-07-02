@@ -25,7 +25,7 @@
   "author": "Matt White",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Matawhite/LIRI/issues"
+    "url": "https://github.com/Matawhite/liri-node-app/issues"
   },
-  "homepage": "https://github.com/Matawhite/LIRI#readme"
+  "homepage": "https://github.com/Matawhite/liri-node-app#readme"
 }
